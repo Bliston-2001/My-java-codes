@@ -1,0 +1,478 @@
+1. Find the largest element in an array
+
+class largestelement {
+    public static void main(String[] args) {
+        int[] myarray={1,5,6,7,9,2};
+        int max=myarray[0];
+        for(int i=0;i<myarray.length-1;i++){
+            if(myarray[i]>max){
+                max=myarray[i];
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+2. Find the second largest element in an array
+
+class secondlargest {
+    public static void main(String[] args) {
+        int[] myarray={1,5,6,7,9,2};
+        int max=myarray[0];
+        int second=myarray[0];
+        for(int i=0;i<myarray.length;i++){
+            if(myarray[i]>max){
+                second=max;
+                max=myarray[i];
+            }
+            else if(myarray[i]>second && myarray[i]<max){
+                second=myarray[i];
+            }
+        }
+        System.out.println(max);
+        System.out.println(second);
+        
+    }
+}
+
+3. Reverse an array
+
+class reverse {
+    public static void main(String[] args) {
+        int[] myarray = {1,2,3,5,6,7,8};
+        for(int i=myarray.length-1;i>=0;i--){
+            System.out.println(myarray[i]);
+        }
+    }
+}
+
+4. Find the sum of all elements in an array
+
+public class sum {
+    public static void main(String[] args) {
+        int [] myarray={1,2,3,4,5,6};
+        int sum =0;
+        for(int i=0;i<myarray.length;i++){
+            sum=sum+myarray[i];
+        }
+        System.out.println(sum);
+
+    }
+}
+
+5. Find the average of all elements in an array
+
+public class average {
+    public static void main(String[] args) {
+        int [] myarray={1,2,3,4,5,6,6};
+        int sum =0;
+        for(int i=0;i<myarray.length;i++){
+            sum=sum+myarray[i];
+        }
+        float average = (float)sum/myarray.length;
+        System.out.println(sum);
+        System.out.println(average);
+
+    }
+}
+
+6. Check if an array is sorted
+
+public class sorted {
+    public static void main(String[] args) {
+        int [] myarray={1,2,3,4,5,4};
+        boolean sorted=true;
+        for(int i=0;i<myarray.length-1;i++){
+            if(myarray[i]>myarray[i+1]){
+                sorted=false;
+            }
+    }
+    if(sorted==false){
+        System.out.println("not sorted");
+    }
+    else{
+        System.out.println(" sorted");
+    }
+}
+
+}
+
+bubble sort
+
+public class bubble{
+    public static void main(String[] args) {
+        int [] myarray={1,2,3,4,5,4,2,1};
+        int temp;
+        for(int i=0;i<myarray.length-1;i++){
+            for(int j=0;j<myarray.length-1;j++){
+                if(myarray[j]>myarray[j+1]){
+                    temp=myarray[j];
+                    myarray[j]=myarray[j+1];
+                    myarray[j+1]=temp;
+                
+              }
+            }
+            
+    }
+    for(int k=0;k<myarray.length-1;k++){
+        System.out.println(myarray[k]);
+    }
+    
+}
+
+}
+
+7.Remove duplicates from a sorted array
+
+import java.util.*;
+class duplicates {
+    public static void main(String[] args) {
+        int[] myarray={1,2,8,6,2,4,6,6,5};
+        Arrays.sort(myarray);
+        int newlength=1;
+        int[] newarray=new int[10];
+        newarray[0]=myarray[0];
+        for(int i=1;i<myarray.length;i++){
+            if(myarray[i]!=myarray[i-1]){
+                newarray[newlength]=myarray[i];
+                newlength++;
+            }
+        }
+         for (int i = 0; i < newlength; i++) {
+            System.out.print(newarray[i] + " ");
+        }
+    }
+}
+
+import java.util.*;
+class duplicates{
+    public static void main(String[] args) {
+        int[] myarray={1,2,8,6,2,4,6,6,5};
+        HashSet<Integer> set = new HashSet<Integer>();
+        for(int i:myarray){
+            set.add(i);
+            
+        }
+        System.out.println(set);
+    }
+}
+
+9. Find the frequency of each element in an array
+
+import java.util.*;
+class frequencyofarray {
+    public static void main(String[] args) {
+        int[] myarray={1,2,8,6,2,4,6,6,5};
+        HashMap<Integer,Integer> frequency = new HashMap<>();
+        for(int i:myarray){
+            frequency.put(i,frequency.getOrDefault(i,0)+1);
+        }
+         System.out.println(frequency);
+    }
+}
+
+10. Find common elements between two arrays
+
+import java.util.*;
+class common {
+    public static void main(String[] args) {
+        int[] array1={1,2,3,4,5};
+        int[] array2={1,5,6,3,7};//[1,3,5,6,7]
+        Arrays.sort(array2);
+        ArrayList<Integer> newarray = new ArrayList<Integer>(); 
+        for(int i=0;i<array1.length;i++){
+            for(int j=0;j<array2.length;j++){
+                if(array1[i]==array2[j]){
+                    newarray.add(array1[i]);
+                }
+            }
+        }
+        for(int k:newarray){
+        System.out.println(k);
+        
+    }
+}
+}
+
+import java.util.*;
+class common {
+    public static void main(String[] args) {
+        int[] array1={1,2,3,4,5};
+        int[] array2={1,5,6,3,7};
+        HashSet<Integer> set = new HashSet<Integer>();
+        for(int i :array1){
+            set.add(i);
+        }
+        for(int j:array2){
+            if(set.contains(j)){
+                System.out.print(j+" ");
+            }
+        }
+    
+}
+}
+
+11. Find the missing number in an array
+
+import java.util.*;
+class missing {
+    public static void main(String[] args) {
+        int[] myarray={1,2,3,5,6,8,9,11,15};//sorting is necessary
+        int length=myarray[myarray.length-1];
+        int j=1;
+        int i=0;
+        while(j<=length-1){
+            if(i<myarray.length && j==myarray[i]){
+                i++;
+            }
+            else{
+                System.out.print(j+" ");
+            }
+            j++;
+        }
+        }
+      
+    }
+
+12. Grouping Even and Odd elements of an array
+
+import java.util.*;
+class evenodd {
+    public static void main(String[] args) {
+        int[] myarray={2,3,5,6,8,9,11,15};//sorting is necessary
+        ArrayList<Integer> even = new ArrayList<Integer>();
+        ArrayList<Integer> odd = new ArrayList<Integer>();
+        for(int i:myarray){
+            if(i%2==0){
+                even.add(i);
+            }
+            else{
+                odd.add(i);
+            }
+        }
+        System.out.println(even);
+        System.out.println(odd);
+        }
+      
+    }
+13. Sort and move zeros to end
+
+import java.util.*;
+class move {
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 0, 3, 4, 0, 5 ,2, 1};
+        Arrays.sort(arr);
+        ArrayList<Integer> newarray = new ArrayList<Integer>();
+        for(int i:arr){
+            if(i!=0){
+                newarray.add(i);
+            }
+        }
+        for(int i:arr){
+            if(i==0){
+                newarray.add(i);
+            }
+        }
+        for(int i: newarray){
+            System.out.println(i);
+        }
+        
+    }
+}
+
+14. Merging to sorted arrays
+
+import java.util.*;
+public class merge {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 3, 5, 7};
+        int[] arr2 = {2, 4, 6, 8};
+        ArrayList<Integer> newarray = new ArrayList<Integer>();
+        for(int i:arr1){
+            newarray.add(i);
+        }
+        for(int i:arr2){
+            newarray.add(i);
+        }
+        Collections.sort(newarray);
+        System.out.println(newarray);
+
+    }
+}
+
+
+
+String codes
+
+1. Reverse a String
+
+import java.util.*;
+class Reversestring {
+    public static void main(String[] args) {
+        String s="reverse";
+
+        String reversed=new StringBuilder(s).reverse().toString();
+        System.out.println(reversed);
+    }
+}
+
+2. Check if a String is a Palindrome 
+
+import java.util.*;
+class Rpalindrome {
+    public static void main(String[] args) {
+        String s="madam";
+        String reversed=new StringBuilder(s).reverse().toString();
+        if(reversed.equals(s)){
+            System.out.println("palindrome");
+        }
+        else{
+            System.out.println("not palindrome");
+        }
+        
+    }
+}
+
+3. Count Vowels and consonent in a String
+
+import java.util.*;
+class count_vowels {
+    public static void main(String[] args) {
+        String s="apple mango";
+        int vowels=0;
+        int consonent=0;
+        for(char i :s.toCharArray()){
+            if(i=='a' || i=='e' || i=='i' || i=='o' || i=='u'){
+                vowels++;
+            }
+            else if(i==' '){
+                continue;
+            }
+            else{
+                consonent++;
+            }
+        }
+        System.out.println(vowels);
+        System.out.println(consonent);
+        
+    }
+}
+
+4.Duplicates in String
+
+import java.util.*;
+class duplicates {
+    public static void main(String[] args) {
+        String s="apple mango";
+        HashMap<Character,Integer> count=new HashMap<Character,Integer>();
+        for(char i : s.toCharArray()){
+            count.put(i,count.getOrDefault(i,0)+1);
+        }
+        System.out.println(count);
+        
+    }
+}
+
+5.print only duplicate values
+
+import java.util.*;
+class duplicates {
+    public static void main(String[] args) {
+        String s="apple mango";
+        ArrayList<Character> count=new ArrayList<Character>();
+        for(char i : s.toCharArray()){
+            if(count.contains(i)){
+                System.out.println(i);
+            }
+            count.add(i);
+            }
+            
+         }   
+        }
+remove duplicate and print
+
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "programming";
+        StringBuilder s = new StringBuilder();
+        HashSet<Character> charSet = new HashSet<>(); 
+        for (char i : str.toCharArray()) {
+            if (!charSet.contains(i)) { 
+                charSet.add(i); 
+                s.append(i); 
+            }
+        }
+        
+        System.out.println(s); 
+    }
+}
+
+6.Anagram
+
+import java.util.*;
+class anagrams{
+    public static void main(String[] args) {
+        String a="listen";
+        String b="silent";
+        char[] aa=a.toCharArray();
+        char[] bb=b.toCharArray();
+        Arrays.sort(aa);
+        Arrays.sort(bb);
+        if(Arrays.equals(aa,bb)){
+            System.out.println("anagram");
+        }
+        else{
+             System.out.println("not anagrams");
+        }
+       
+    }
+}
+
+import java.util.*;
+class anagrams {
+    public static void main(String[] args) {
+        String a="listen";
+        String b="silent";
+        char[] aa=a.toCharArray();
+        char[] bb=b.toCharArray();
+        Arrays.sort(aa);
+        Arrays.sort(bb);
+        String x=Arrays.toString(aa);
+        String y=Arrays.toString(bb);
+        if(x.equals(y)){
+            System.out.println("anagram");
+        }
+        else{
+             System.out.println("not anagrams");
+        }
+       
+    }
+}
+7.print non repeating characters
+
+import java.util.*;
+
+public class nonrepeating {
+    public static void main(String[] args) {
+        String str = "programming";
+        ArrayList<Character> myarray = new ArrayList<Character>();
+        ArrayList<Character> repeating = new ArrayList<Character>();
+        for(char i:str.toCharArray()){
+            if(myarray.contains(i)){
+                repeating.add(i);
+            }
+                myarray.add(i);
+            }
+            for(char i :myarray){
+                if(repeating.contains(i)){
+                    continue;
+                }
+                else{
+                     System.out.println(i);
+                }
+            }
+        
+        } 
+    }
